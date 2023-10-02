@@ -1,84 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>.tabs {
-  margin-top: 50px;
-  padding-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 700px;
-  margin: 0 auto;}
-
-/*タブのスタイル*/
-.tab_item {
-  width: calc(100%/3);
-  height: 50px;
-  border-bottom: 3px solid #5ab4bd;
-  background-color: #d9d9d9;
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-  color: #565656;
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  transition: all 0.2s ease;
+    <style>
+      .tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
-.tab_item:hover {
-  opacity: 0.75;
+.tab-label {
+    color: White;
+    background: LightGray;
+    margin-right: 5px;
+    padding: 3px 12px;
+    order: -1;
 }
-
-/*ラジオボタンを全て消す*/
-input[name="tab_item"] {
-  display: none;
+.tab-content {
+    width: 100%;
+    display: none;
 }
-
-/*タブ切り替えの中身のスタイル*/
-.tab_content {
-  display: none;
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background: DeepSkyBlue;
 }
-
-
-/*選択されているタブのコンテンツのみを表示*/
-#all:checked ~ #all_content,
-#programming:checked ~ #programming_content,
-#design:checked ~ #design_content {
-  display: block;
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
 }
-
-/*選択されているタブのスタイルを変える*/
-.tabs input:checked + .tab_item {
-  background-color: #5ab4bd;
-  color: #fff;
-}</style>
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
+}
+  </style>
   </head>
   <body>
-    <div class="tabs">
-  <input id="all" type="radio" name="tab_item" checked>
-  <label class="tab_item" for="all">総合</label>
-  <input id="programming" type="radio" name="tab_item">
-  <label class="tab_item" for="programming">プログラミング</label>
-  <input id="design" type="radio" name="tab_item">
-  <label class="tab_item" for="design">デザイン</label>
-  <div class="tab_content" id="all_content">
-    <div class="tab_content_description">
-      <p class="c-txtsp">総合の内容がここに入ります</p>
+   <div class="tab-wrap">
+    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">ボタン 1</label>
+    <div class="tab-content">
+        コンテンツ 1
     </div>
-  </div>
-  <div class="tab_content" id="programming_content">
-    <div class="tab_content_description">
-      <p class="c-txtsp">プログラミングの内容がここに入ります</p>
+    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">ボタン 2</label>
+    <div class="tab-content">
+        コンテンツ 2
     </div>
-  </div>
-  <div class="tab_content" id="design_content">
-    <div class="tab_content_description">
-      <p class="c-txtsp">デザインの内容がここに入ります</p>
+    <input id="TAB-03" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-03">ボタン 3</label>
+    <div class="tab-content">
+        コンテンツ 3
     </div>
-  </div>
 </div>
   </body>
 </html>
